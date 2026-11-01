@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsurePredict | Insurance charge estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="#" class="wordmark">InsurePredict</a>
+        <span class="header-note">Machine learning estimator</span>
+    </header>
+
+    <main class="page">
+        <section class="intro">
+            <h1>What will your health insurance cost?</h1>
+            <p>
+                Enter a few details and the model estimates your yearly
+                medical insurance charges.
+            </p>
+        </section>
+
+        <div class="layout">
+            <form id="predictionForm" class="panel form-panel">
+                <h2>Your details</h2>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" min="18" max="100"
+                               inputmode="numeric" placeholder="25" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="sex">Sex</label>
+                        <select id="sex" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="bmi">BMI</label>
+                        <input type="number" id="bmi" min="10" max="100"
+                               step="0.1" inputmode="decimal"
+                               placeholder="28.5" required>
+                        <small>Weight in kg divided by height in metres, squared</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="children">Children</label>
+                        <select id="children" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="smoker">Smoking status</label>
+                        <select id="smoker" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="no">Non-smoker</option>
+                            <option value="yes">Smoker</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="region">Region</label>
+                        <select id="region" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="northeast">Northeast</option>
+                            <option value="northwest">Northwest</option>
+                            <option value="southeast">Southeast</option>
+                            <option value="southwest">Southwest</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="predictBtn" class="btn">
+                    <span class="btn-label">Estimate charges</span>
+                </button>
+            </form>
+
+            <aside class="panel result-panel" id="resultPanel">
+                <h2>Estimate</h2>
+
+                <div id="resultContent" aria-live="polite">
+                    <p class="result-label">Yearly insurance charges</p>
+                    <p id="predictionValue" class="result-value">&mdash;</p>
+                    <p class="result-description">
+                        Your estimate will appear here after you submit your details.
+                    </p>
+                </div>
+
+                <p id="statusMessage" class="status" role="status"></p>
+
+                <dl class="facts">
+                    <div>
+                        <dt>Model</dt>
+                        <dd>Gradient Boosting</dd>
+                    </div>
+                    <div>
+                        <dt>R&sup2; score</dt>
+                        <dd>89.90%</dd>
+                    </div>
+                </dl>
+
+                <p class="disclaimer">
+                    This is a statistical estimate, not an insurance quote
+                    or medical advice.
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <span>InsurePredict, 2026</span>
+        <span>Built with Python and scikit-learn</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

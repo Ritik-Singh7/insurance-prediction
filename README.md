@@ -82,7 +82,7 @@ These results are specific to the current train-test split and preprocessing set
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Ritik-Singh7/insurance-prediction
 cd insurance-prediction
 ```
 
